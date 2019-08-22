@@ -4,11 +4,13 @@
  */
 
 // $(...) will run the function you give it when the page is loaded & ready
-$(function() {
+$(document).ready(function() {
   // console.log will log a message or object to the browser developer console
   console.log("page loaded...");
 
-  $("selector-goes-here").click(/* function for when the button is clicked goes here */);
+  $("#triviabtn").on("click", function () {
+    fetchRandomTriviaQuestion(displayQuestionAndAnswer);
+  });
   /*
    * TODO: You will need to use a css selector to get jQuery to find the button element in the page
    * Then you will need to make a new javascript function to do stuff for when the button
@@ -16,6 +18,10 @@ $(function() {
    * The function should call one of the functions below, and pass the other in as the callback...
    */
 });
+
+function sayHi(){
+  $("#results-area").text("Oh hi!");
+}
 
 function displayQuestionAndAnswer(question, answer) {
   $("#results-area").text("True or false?");
